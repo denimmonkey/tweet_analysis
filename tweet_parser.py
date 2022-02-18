@@ -105,6 +105,22 @@ truncate_table(connection, "length")
 execute_query(connection, insert_into_length)
 
 
+create_view_query = """
+                    CREATE VIEW USER_TWEET_ATTRIBUTES AS 
+                    SELECT 
+                        NAME.USER_ID,
+                        NAME.USERNAME,
+                        COUNT(TWEET.ID) AS TWEET_COUNT,
+                        MAX(LENGTH.LENGTH) MAX_TWEET_LENGTH,
+                        MIN(LENGTH.LENGTH) MIN_TWEET_LENGTH
+                    FROM 
+                        NAME JOIN TWEET ON NAME.ID = TWEET.ID
+                    JOIN LENGTH ON TWEET.ID = LENGTH.ID
+                    GROUP BY NAME.USER_ID, NAME.USERNAME
+                    ORDER BY COUNT(TWEET.ID) DESC;
+                    """
+
+execute_query(connection, create_view_query)
 
 wordcount_df = raw_tweets.tweet.str.replace('[^\w\s]','').str.split(expand=True).stack().value_counts().reset_index()
 wordcount_df = wordcount_df.rename(columns={'index':'word', 0:'frequency'})
