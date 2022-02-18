@@ -1,6 +1,6 @@
 import twint
 import datetime
-since = datetime.datetime(2022, 2, 12)
+since = datetime.datetime(2022, 1, 1)
 until = datetime.datetime(2022, 2, 18)
 print(since, until)
 

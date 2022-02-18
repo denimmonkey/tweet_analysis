@@ -27,3 +27,13 @@ user_id	username	tweet_count	max_tweet_length	min_tweet_length
 28390598	23abcnews	2	246	222
 
 */
+
+
+
+
+drop view user_tweet_attributes;
+drop table frequency;	
+drop table tweet;	
+drop table name;
+drop table raw_tweets;
+drop table length;
