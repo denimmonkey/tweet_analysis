@@ -36,7 +36,7 @@ def horizontal_bar_plot(top_n, df, plot_name):
                           ax=ax,
                           color="purple")
 
-    ax.set_title("Common Words Found in Tweets (Including All Words)")
+    ax.set_title("word frequency")
 
     plt.savefig(f"plots/{top_n}_{plot_name}.png")
 
