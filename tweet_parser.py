@@ -106,7 +106,7 @@ execute_query(connection, insert_into_length)
 
 
 create_view_query = """
-                    CREATE VIEW USER_TWEET_ATTRIBUTES AS 
+                    CREATE OR REPLACE VIEW USER_TWEET_ATTRIBUTES AS 
                     SELECT 
                         NAME.USER_ID,
                         NAME.USERNAME,
